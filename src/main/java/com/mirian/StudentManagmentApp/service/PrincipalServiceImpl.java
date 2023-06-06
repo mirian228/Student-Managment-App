@@ -3,6 +3,7 @@ package com.mirian.StudentManagmentApp.service;
 import com.mirian.StudentManagmentApp.exceptions.PrincipalIdNotFoundException;
 import com.mirian.StudentManagmentApp.model.Principal;
 import com.mirian.StudentManagmentApp.repository.PrincipalRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +31,13 @@ public class PrincipalServiceImpl implements PrincipalService {
     }
 
     @Override
+    @Transactional
     public Principal savePrincipal(Principal principal) {
         return principalRepository.save(principal);
     }
 
     @Override
+    @Transactional
     public Principal updatePrincipalById(int principalId, Principal principalForUpdate) {
         Optional<Principal> optionalPrincipal = principalRepository.findById(principalId);
         if (optionalPrincipal.isPresent()) {
@@ -52,6 +55,7 @@ public class PrincipalServiceImpl implements PrincipalService {
     }
 
     @Override
+    @Transactional
     public void deletePrincipalById(int principalId) {
         principalRepository.deleteById(principalId);
     }

@@ -3,6 +3,7 @@ package com.mirian.StudentManagmentApp.service;
 import com.mirian.StudentManagmentApp.exceptions.StudentIdNotFoundException;
 import com.mirian.StudentManagmentApp.model.Student;
 import com.mirian.StudentManagmentApp.repository.StudentRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +32,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public Student saveStudent(Student student) {
         return studentRepository.save(student);
     }
 
     @Override
+    @Transactional
     public Student updateStudentById(int studentId, Student studentForUpdate) {
         Optional<Student> optionalStudent = studentRepository.findById(studentId);
         if (optionalStudent.isPresent()) {
@@ -54,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public void deleteStudentById(int studentId) {
         studentRepository.deleteById(studentId);
     }

@@ -3,6 +3,7 @@ package com.mirian.StudentManagmentApp.service;
 import com.mirian.StudentManagmentApp.exceptions.SchoolIdNotFoundException;
 import com.mirian.StudentManagmentApp.model.School;
 import com.mirian.StudentManagmentApp.repository.SchoolRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +32,13 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
+    @Transactional
     public School saveSchool(School school) {
         return schoolRepository.save(school);
     }
 
     @Override
+    @Transactional
     public School updateSchoolById(int schoolId, School schoolForUpdate) {
         Optional<School> optionalSchool = schoolRepository.findById(schoolId);
         if (optionalSchool.isPresent()) {
@@ -52,6 +55,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
+    @Transactional
     public void deleteSchoolById(int schoolId) {
       schoolRepository.deleteById(schoolId);
     }
