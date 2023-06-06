@@ -11,7 +11,7 @@ public interface PrincipalService {
 
     Principal savePrincipal(Principal principal);
 
-    Principal updatePrincipalById(int principalId);
+    Principal updatePrincipalById(int principalId, Principal principal);
 
     void deletePrincipalById(int principalId);
 

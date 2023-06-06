@@ -22,7 +22,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student updateStudentById(int studentId) {
+    public Student updateStudentById(int studentId, Student studentForUpdate) {
         return null;
     }
 

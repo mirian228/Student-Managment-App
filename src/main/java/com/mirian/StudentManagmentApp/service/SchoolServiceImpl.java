@@ -22,7 +22,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public School updateSchoolById(int schoolId) {
+    public School updateSchoolById(int schoolId, School schoolForUpdate) {
         return null;
     }
 

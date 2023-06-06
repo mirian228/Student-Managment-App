@@ -22,7 +22,7 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public Teacher updateTeacherById(int teacherId) {
+    public Teacher updateTeacherById(int teacherId, Teacher teacherForUpdate) {
         return null;
     }
 

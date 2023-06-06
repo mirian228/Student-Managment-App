@@ -11,7 +11,7 @@ public interface SchoolService {
 
     School saveSchool(School school);
 
-    School updateSchoolById(int schoolId);
+    School updateSchoolById(int schoolId, School school);
 
     void deleteSchoolById(int schoolId);
 }
