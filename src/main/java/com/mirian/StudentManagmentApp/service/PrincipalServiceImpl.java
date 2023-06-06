@@ -53,7 +53,6 @@ public class PrincipalServiceImpl implements PrincipalService {
 
     @Override
     public void deletePrincipalById(int principalId) {
-        Principal principalToDelete = principalRepository.findById(principalId).get();
-        principalRepository.delete(principalToDelete);
+        principalRepository.deleteById(principalId);
     }
 }

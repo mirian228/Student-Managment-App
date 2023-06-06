@@ -53,7 +53,6 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public void deleteSchoolById(int schoolId) {
-        School schoolToDelete = schoolRepository.findById(schoolId).get();
-        schoolRepository.delete(schoolToDelete);
+      schoolRepository.deleteById(schoolId);
     }
 }
