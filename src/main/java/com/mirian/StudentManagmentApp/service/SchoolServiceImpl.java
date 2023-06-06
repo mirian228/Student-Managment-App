@@ -1,7 +1,6 @@
 package com.mirian.StudentManagmentApp.service;
 
-import com.mirian.StudentManagmentApp.exceptions.PrincipalIdNotFoundException;
-import com.mirian.StudentManagmentApp.model.Principal;
+import com.mirian.StudentManagmentApp.exceptions.SchoolIdNotFoundException;
 import com.mirian.StudentManagmentApp.model.School;
 import com.mirian.StudentManagmentApp.repository.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,28 +37,23 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public School updateSchoolById(int schoolId, School schoolForUpdate) {
-        Optional<Principal> optionalPrincipal = schoolRepository.findById(principalId);
-        if (optionalPrincipal.isPresent()) {
-            Principal updatedPrincipal = optionalPrincipal.get();
-            updatedPrincipal.setFirstName(principalForUpdate.getFirstName());
-            updatedPrincipal.setLastName(principalForUpdate.getLastName());
-            updatedPrincipal.setEmail(principalForUpdate.getEmail());
-            updatedPrincipal.setIdSchool(principalForUpdate.getIdSchool());
+        Optional<School> optionalSchool = schoolRepository.findById(schoolId);
+        if (optionalSchool.isPresent()) {
+            School updatedSchool = optionalSchool.get();
+            updatedSchool.setId(schoolForUpdate.getId());
+            updatedSchool.setSchoolAddress(schoolForUpdate.getSchoolAddress());
+            updatedSchool.setSchoolName(schoolForUpdate.getSchoolName());
 
-            return schoolRepository.save(updatedPrincipal);
+
+            return schoolRepository.save(updatedSchool);
         } else {
-            throw new PrincipalIdNotFoundException("Principal not Found with Id: " + principalId);
+            throw new SchoolIdNotFoundException("School not Found with Id: " + schoolId);
         }
-
-
-
-
-
-        return null;
     }
 
     @Override
     public void deleteSchoolById(int schoolId) {
-
+        School schoolToDelete = schoolRepository.findById(schoolId).get();
+        schoolRepository.delete(schoolToDelete);
     }
 }
