@@ -7,11 +7,11 @@ import java.util.List;
 public interface SchoolService {
     List<School> findAllSchools();
 
-    School findSchoolById();
+    School findSchoolById(int schoolId);
 
-    School saveSchool();
+    School saveSchool(School school);
 
-    School updateSchool();
+    School updateSchoolById(int schoolId);
 
-    void deleteSchool();
+    void deleteSchoolById(int schoolId);
 }

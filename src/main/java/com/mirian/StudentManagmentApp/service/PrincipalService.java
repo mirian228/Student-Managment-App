@@ -7,13 +7,13 @@ import java.util.List;
 public interface PrincipalService {
     List<Principal> findAllPrincipals();
 
-    Principal findPrincipalById();
+    Principal findPrincipalById(int principalId);
 
-    Principal savePrincipal();
+    Principal savePrincipal(Principal principal);
 
-    Principal updatePrincipal();
+    Principal updatePrincipalById(int principalId);
 
-    void deletePrincipal();
+    void deletePrincipalById(int principalId);
 
 
 }
