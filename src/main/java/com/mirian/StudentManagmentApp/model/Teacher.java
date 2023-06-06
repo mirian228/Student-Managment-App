@@ -20,8 +20,8 @@ public class Teacher {
     @ManyToMany
     @JoinTable(name = "school_teacher", joinColumns = @JoinColumn(name = "id_teacher"), inverseJoinColumns = @JoinColumn(name = "id_school"))
     private List<School> schools;
-    @JoinTable(name = "student_teacher", joinColumns = @JoinColumn(name = "id_teacher"), inverseJoinColumns = @JoinColumn(name = "id_student"))
     @ManyToMany
+    @JoinTable(name = "student_teacher", joinColumns = @JoinColumn(name = "id_teacher"), inverseJoinColumns = @JoinColumn(name = "id_student"))
     private List<Student> students;
 
     public Teacher() {

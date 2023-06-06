@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Students</title>
+</head>
+
+<body>
+<div class="container">
+<h3 class="text-primary">STUDENTS</h3>
+<br>
+<hr>
+<table class="table table-dark table-striped table-bordered border-dark">
+    <thead>
+    <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">School ID</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-light" th:each="tempStudent: ${students}">
+        <td th:text="${tempStudent.firstName}"/>
+        <td th:text="${tempStudent.lastName}"/>
+        <td th:text="${tempStudent.email}"/>
+        <td th:text="${tempStudent.idSchool.schoolName}"/>
+        <td>
+            <a th:href="@{update(studentId=${tempStudent.id})}" class="btn btn-info btn-sm">UPDATE</a>
+            <a th:href="@{delete(studentId=${tempStudent.id})}" class="btn btn-danger btn-sm">DELETE</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <br>
+    <a class="btn btn-primary" th:href="@{/students/addStudent}">Add Student</a>
+</div>
+</body>
+
+</html>

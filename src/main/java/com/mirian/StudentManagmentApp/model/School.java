@@ -9,7 +9,7 @@ import java.util.List;
 public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToOne(mappedBy = "idSchool")
+    @Column(name = "id_school")
     private int id;
     @Column(name = "school_name")
     private String schoolName;
@@ -17,7 +17,8 @@ public class School {
     private String schoolAddress;
     @ManyToMany(mappedBy = "schools")
     private List<Teacher> teachers;
-
+    @OneToOne(mappedBy = "idSchool")
+    private Principal principal;
     public School() {
     }
 
@@ -48,6 +49,14 @@ public class School {
 
     public void setSchoolAddress(String schoolAddress) {
         this.schoolAddress = schoolAddress;
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     @Override

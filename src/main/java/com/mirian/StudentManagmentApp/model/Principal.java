@@ -16,7 +16,7 @@ public class Principal {
     @Column(name = "email")
     private String email;
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name ="id_school")
     private School idSchool;
 
     public Principal(String firstName, String lastName, String email, School idSchool) {

@@ -49,6 +49,14 @@ public class Student {
         this.firstName = firstName;
     }
 
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
     public String getLastName() {
         return lastName;
     }
