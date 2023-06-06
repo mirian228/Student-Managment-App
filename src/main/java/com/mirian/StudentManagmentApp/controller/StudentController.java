@@ -37,7 +37,7 @@ public class StudentController {
     }
 
     @GetMapping("/update")
-    public String showUpdateForm(@RequestParam("studentId") int studentId, Model theModel) {
+    public String showUpdateForm(@RequestParam("studentId") int studentId, Model theModel) {gi
         Student theStudent = studentService.findStudentById(studentId);
         theModel.addAttribute("student", theStudent);
         return "addStudent";
